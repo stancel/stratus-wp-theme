@@ -1,0 +1,5 @@
+# Git Ignore file for this WP Theme Git Repo
+
+.DS_Store
+
+
