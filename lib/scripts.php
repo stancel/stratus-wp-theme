@@ -12,7 +12,7 @@ function roots_scripts() {
 	/********************************
 	Bootstrap + Vendor CSS / JS
 	 ********************************/
-	wp_register_script('t_vendor_footer', get_template_directory_uri() . '/assets/js/vendor/vendor_footer.js', array(), '1.1', true);
+	wp_register_script('t_vendor_footer', get_template_directory_uri() . '/assets/js/vendor/vendor_footer.js', array(), '1.2', true);
 	wp_enqueue_script('t_vendor_footer');
 
 	

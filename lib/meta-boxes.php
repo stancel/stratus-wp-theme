@@ -29,7 +29,9 @@ function _themo_general_meta_boxes()
             // END PAGE LAYOUT META BOX
         )
     );
-    ot_register_meta_box($themo_blog_category_meta_box);
+    if (function_exists('ot_register_meta_box')) {
+        ot_register_meta_box($themo_blog_category_meta_box);
+    }
 
 //-----------------------------------------------------
 // Page Layout, Sidebar, Content Editor Sort Order
@@ -82,7 +84,9 @@ function _themo_general_meta_boxes()
             // END PAGE LAYOUT META BOX
         )
     );
-    ot_register_meta_box($themo_page_layout_meta_box);
+    if (function_exists('ot_register_meta_box')) {
+        ot_register_meta_box($themo_page_layout_meta_box);
+    }
 
     //-----------------------------------------------------
     // Page Layout, Sidebar, Content Editor Sort Order

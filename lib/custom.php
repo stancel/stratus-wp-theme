@@ -783,6 +783,26 @@ function themo_return_footer_logo() {
 # Filters
 # Plugins Actiosn and Filters
 
+// Add data attribute for retina images.
+// add_filter('the_content', 'add_retina_tags', 99999);
+function add_retina_tags($content)
+{
+    $themo_retina_size = '2';
+    preg_match_all('/<img (.*?)\/>/', $content, $images);
+    if(!is_null($images))
+    {
+        foreach($images[1] as $index => $value)
+        {
+            if(!preg_match('/data-rjs=/', $value))
+            {
+                $new_img = str_replace('<img', '<img data-rjs="'.$themo_retina_size.'"', $images[0][$index]);
+                $content = str_replace($images[0][$index], $new_img, $content);
+            }
+        }
+    }
+    return $content;
+}
+
 /* Admin noice for Master Slider */
 
 // display custom admin notice
@@ -1303,7 +1323,7 @@ function th_elementor_update_check() {
         if ( is_dir( $th_plugin_dir ) ) {
             // plugin directory found!
             $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-                'https://import.themovation.com/live-plugin-updater/elementor-update.json',
+                'https://import.themovation.com/live-plugin-updater/elementor.json',
                 $th_plugin_dir.'/'.$th_plugin_slug.'.php',
                 $th_plugin_slug
             );
@@ -1852,20 +1872,24 @@ function th_register_required_plugins() {
             'source'    => 'https://www.dropbox.com/s/hk8f8md37m11m0q/th-widget-pack.zip?dl=1', //get_template_directory() . '/plugins/th-widget-pack.zip', // The plugin source.
             'required'  => true,
         ),
+        array(
+            'name'      => 'Option Tree', // The plugin name.
+            'slug'      => 'option-tree', // The plugin slug (typically the folder name)
+            'source'    => 'https://www.dropbox.com/s/ff9f1ahxacpbvlu/option-tree.zip?dl=1', // BETA
+            'required'  => true,
+        ),
 		array(
 			'name'      => 'Master Slider Pro', // The plugin name.
             'slug'      => 'masterslider', // The plugin slug (typically the folder name).
             'source'    => 'https://www.dropbox.com/s/mhpqd8atrshfgu5/master-slider.zip?dl=1', //get_template_directory() . '/plugins/th-widget-pack.zip', // The plugin source.
             'required' => false,
         ),
-
         array(
             'name'      => 'Slider Revolution', // The plugin name.
             'slug'      => 'revslider', // The plugin slug (typically the folder name).
             'source'    => 'https://www.dropbox.com/s/dwm4w6ax7lpqgxh/revslider.zip?dl=1', //get_template_directory() . '/plugins/th-widget-pack.zip', // The plugin source.
             'required' => false,
         ),
-
         array(
             'name'      => 'Groovy Menu', // The plugin name.
             'slug'      => 'groovy-menu', // The plugin slug (typically the folder name).
@@ -1879,6 +1903,8 @@ function th_register_required_plugins() {
             'source' => 'https://www.dropbox.com/s/o4lpuqqr46gft34/envato-market.zip?dl=1',
             'required' => true,
         ),
+
+
 
 		// This is an example of how to include a plugin from the WordPress Plugin Repository.
 		array(

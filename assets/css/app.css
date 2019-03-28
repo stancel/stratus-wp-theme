@@ -1460,13 +1460,14 @@ body.elementor-page .th-pagination {display:none}
 }
 
 .mas-blog-post .post-inner {
-    padding:15px;
+    padding:30px;
     background:#fff;
     border:1px solid #e1e1e1;
     /*border-top:3px solid #3A3B74;*/
 }
 .mas-blog-post .post-title {
     font-size:20px;
+    line-height:1.3;
     margin-top:0;
 }
 .mas-blog-post .post-meta {
@@ -1692,7 +1693,7 @@ body.single .format-quote blockquote {
 .th-masonry-blog .format-quote blockquote p {
     font-size:22px;
     font-weight:300;
-    line-height:120%;
+    line-height:1.3;
     color:#656565;
 }
 .th-masonry-blog .format-quote blockquote footer {margin-top:15px}
@@ -1716,6 +1717,7 @@ body.single .format-quote blockquote {
 .th-masonry-blog .format-link .link-text {margin-bottom:30px}
 .th-masonry-blog .format-link .link-title {
     font-size:22px;
+    line-height:1.3;
     margin-top:15px;
 }
 .th-masonry-blog .format-link .link-icon {
@@ -1952,6 +1954,12 @@ body.search-results .pager {
     position:absolute;
     top:0;
     left:0;
+}
+
+/* Three Columns */
+
+@media (min-width:992px) {
+    .th-portfolio .th-portfolio-item.col-md-4 {width:33.333332%}
 }
 
 /* Four Columns */
@@ -5393,7 +5401,10 @@ span.th-payment-no-img {
 
 /* Widget Sidebar */
 
-.th-sidebar-widget {padding:10px}
+.th-sidebar-widget {
+    width:100%;
+    padding:10px;
+}
 
 
 /* ==========================================================================
@@ -6201,6 +6212,15 @@ header.dark-header.headhesive--clone[data-transparent-header="true"] .navbar-nav
 .gm-navbar .gm-dropdown-menu .gm-dropdown-menu-wrapper {margin-top:-10px}
 
 
+/* Mobile menu */
+
+.gm-navigation-drawer {padding:25% 14px 14px 14px}
+
+.gm-navigation-drawer .gm-anchor {border-color:transparent}
+
+.gm-navigation-drawer .gm-anchor span i {text-align:right}
+
+
 /* WooCommerce Mini Cart */
 
 .gm-main-menu-wrapper .gm-minicart .gm-minicart-dropdown {padding:22px}
@@ -6232,15 +6252,6 @@ header.dark-header.headhesive--clone[data-transparent-header="true"] .navbar-nav
     border:0 !important;
     border-bottom: 2px solid rgba(255, 255, 255, 0.31) !important;
 }
-
-
-/* Mobile menu */
-
-.gm-navigation-drawer {padding:12px}
-
-.gm-navigation-drawer .gm-anchor {border-color:transparent}
-
-.gm-navigation-drawer .gm-anchor span i {text-align:right}
 
 
 /* ==========================================================================

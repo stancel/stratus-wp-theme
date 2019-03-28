@@ -38,11 +38,11 @@ include( get_template_directory(). '/lib/customizer.php');
 
 
 // Activate Option Tree in the theme rather than as a plugin
-add_filter( 'ot_theme_mode', '__return_true' );
+//add_filter( 'ot_theme_mode', '__return_true' );
 add_filter( 'ot_show_pages', '__return_false' );
 
-include_once(get_template_directory() . '/option-tree/ot-loader.php');
-include_once(get_template_directory() . '/option-tree/meta-boxes.php' ); // LOAD META BOXES
+//include_once(get_template_directory() . '/option-tree/ot-loader.php');
+include_once(get_template_directory() . '/lib/meta-boxes.php' ); // LOAD META BOXES
 
 
 // Envato WP Theme Setup Wizard
