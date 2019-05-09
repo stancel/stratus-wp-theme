@@ -124,7 +124,24 @@ global $themo_animation;
   
     <div class="content">
 
-        <?php include roots_template_path(); ?>
+        <?php
+        if ( is_archive() || is_home() || is_search() ) {
+            // Elementor 'archive' location
+            if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'archive' ) ) {
+                include roots_template_path();
+            }
+        } elseif ( is_singular() ) {
+            // Elementor single location
+            if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) {
+                include roots_template_path();
+            }
+        } else {
+            // Elementor `404` location
+            if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) {
+                include roots_template_path();
+            }
+        }
+        ?>
 
     </div><!-- /.content -->
   </div><!-- /.wrap -->

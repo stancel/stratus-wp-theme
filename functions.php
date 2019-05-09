@@ -273,8 +273,7 @@ function check_theme_setup($old_theme_name, $old_theme = false){
 
 function stratus_register_elementor_locations( $elementor_theme_manager ) {
 
-	$elementor_theme_manager->register_location( 'header' );
-	$elementor_theme_manager->register_location( 'footer' );
+    $elementor_theme_manager->register_all_core_location();
 
 }
 add_action( 'elementor/theme/register_locations', 'stratus_register_elementor_locations' );

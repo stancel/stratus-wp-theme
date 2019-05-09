@@ -1918,22 +1918,31 @@ function enqueue_child_theme_style() {
                                     $elm_page_settings_array  = get_post_meta($post_id, "_elementor_page_settings");
                                     if(!isset($elm_page_settings_array) || empty($elm_page_settings_array)) {
 
+
+                                        /* Group 1 = Transparent + Light Menu Content */
                                         $group1 = array("home-product-vr", "home-app", "home-startup",
                                             "home-product-laptop", "home-shop", "pricing", "tour-2", "showcase",
-                                            "portfolio","home-cryptocurrency","home-masonry-blog","home-video");
-                                        $group2 = array("home-cloud", "home-app-2", "home-parallax", "tour",
-                                            "parallel-platforms","mobile-marketing","idea-collaboration","growth-strategies",
-                                            "envisioned-multimedia","engage-worldwide","home-saas","home-product-promotion");
+                                            "portfolio","home-cryptocurrency","home-masonry-blog", "home-app-2",
+                                            "home-help-center","home-coming-soon");
+                                        /* Group 2 = Solid header */
+                                        $group2 = array( "tour", "parallel-platforms","mobile-marketing","idea-collaboration",
+                                            "growth-strategies", "envisioned-multimedia","engage-worldwide");
+                                        /* Group 3 = Transparent + Dark Menu Content */
+                                        $group3 = array( "home-saas","home-cloud","home-parallax","home-product-promotion","home-video");
 
                                         $th_post = get_post($post_id);
                                         $th_slug = $th_post->post_name;
 
                                         if (in_array($th_slug, $group1)) {
-                                            $elm_page_settings_array = array ('hide_title'=>'yes','themo_transparent_header'=>'on');
+                                            $elm_page_settings_array = array ('hide_title'=>'yes','themo_transparent_header'=>'on','themo_header_content_style'=>'light');
                                             update_post_meta( $post_id, "_elementor_page_settings", $elm_page_settings_array );
                                             error_log($th_slug . " in Group 1");
                                         } elseif (in_array($th_slug, $group2)){
                                             $elm_page_settings_array = array ('hide_title'=>'yes','themo_transparent_header'=>'');
+                                            update_post_meta( $post_id, "_elementor_page_settings", $elm_page_settings_array );
+                                            error_log($th_slug . " in Group 2");
+                                        } elseif (in_array($th_slug, $group3)){
+                                            $elm_page_settings_array = array ('hide_title'=>'yes','themo_transparent_header'=>'on','themo_header_content_style'=>'dark','themo_alt_logo'=>'on');
                                             update_post_meta( $post_id, "_elementor_page_settings", $elm_page_settings_array );
                                             error_log($th_slug . " in Group 2");
                                         }

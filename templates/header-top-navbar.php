@@ -131,8 +131,14 @@ if ( function_exists( 'get_theme_mod' ) ) {
 	if($transparency && $transparent_logo_enabled ){
 		$logo = get_theme_mod( 'themo_logo_transparent_header' );
 		if(!$logo > ""){
-			$logo = get_template_directory_uri() . '/assets/images/logo_white.png';
-			$logo_retina = get_template_directory_uri() . '/assets/images/logo_white@2x.png';
+		    // If alt logo enabled, use default alt logo
+            if(isset($th_alt_logo) && $th_alt_logo =='on'){
+                $logo = get_template_directory_uri() . '/assets/images/logo.png' ;
+                $logo_retina = get_template_directory_uri() . '/assets/images/logo@2x.png';
+            }else{
+                $logo = get_template_directory_uri() . '/assets/images/logo_white.png';
+                $logo_retina = get_template_directory_uri() . '/assets/images/logo_white@2x.png';
+            };
 		}else{
 			$logo_retina = "";
 		}
@@ -297,7 +303,6 @@ if ( function_exists( 'get_theme_mod' ) ) {
             <div id="logo">
                 <a href="<?php echo esc_url(home_url('/')); ?>">
                    	<?php if($transparency && $transparent_logo_enabled && $th_alt_logo == "on") { // If trans header on and there is a alt logo and it's enabled on page settings, show it  ?>
-
                         <img class="logo-trans logo-reg" src="<?php echo esc_url( $logo_src ); ?>" <?php echo wp_kses_post( $logo_height . $logo_width );?>  alt="<?php sanitize_text_field(bloginfo("name" )); ?>" />
                     <?php }elseif($transparency && (!$transparent_logo_enabled or !$th_alt_logo or $th_alt_logo == 'Off')){ // If trans header on but alt logo is turned off or it's not enabed on the page settings don't show ?>
                         <img class="logo-trans logo-reg" src="<?php echo esc_url( $logo_src_main ); ?>" <?php echo wp_kses_post( $logo_height_main ." ". $logo_width_main );?>   alt="<?php sanitize_text_field(bloginfo("name" )); ?>" />

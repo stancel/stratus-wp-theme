@@ -1233,6 +1233,15 @@ function th_booked_del_redirect() {
 
 add_action('admin_init', 'th_booked_del_redirect', 8);
 
+
+// Remove Elementor Plugin Redirection
+
+function themo_elementor_del_redirect() {
+    delete_transient( 'elementor_activation_redirect' );
+}
+
+add_action('admin_init', 'themo_elementor_del_redirect', 8);
+
 // Check for plugin updates
 
 function th_masterslider_update_check() {
