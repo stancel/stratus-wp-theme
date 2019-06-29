@@ -49,12 +49,6 @@ if ( function_exists( 'get_theme_mod' ) ) {
         } );
     }
 
-    /*$headers_typography_ludicrous = get_theme_mod( 'headers_typography_ludicrous', 'off' );
-    if ($headers_typography_ludicrous == 'on'){
-        add_filter( 'body_class', function( $classes ) {
-            return array_merge( $classes, array( 'th-bundled-font' ) );
-        } );
-    }*/
 }
 ?>
 

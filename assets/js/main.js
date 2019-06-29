@@ -116,6 +116,8 @@ var nice = false;
  */
 (function() {
 
+	//retinajs();
+
 	if (!window.console) {
 		window.console = {};
 	}
@@ -182,12 +184,16 @@ jQuery(document).ready(function($) {
         // If the top nav bar menu is open, close it.
         onStick:   function () {
 
-            jQuery( "header:not('.headhesive--stick') .navbar-toggle").not( ".collapsed" ).trigger( "click" );
+            //jQuery( "header:not('.headhesive--stick') .navbar-toggle").not( ".collapsed" ).trigger( "click" );
+			jQuery('.navbar-collapse').css('height', '0');
+			jQuery('.navbar-collapse').removeClass('in');
         },
         // If the top nav bar menu is open, close it.
         onUnstick:   function () {
 
-            jQuery( "header:not('.headhesive--stick') .navbar-toggle").not( ".collapsed" ).trigger( "click" );
+            //jQuery( "header:not('.headhesive--stick') .navbar-toggle").not( ".collapsed" ).trigger( "click" );
+			jQuery('.navbar-collapse').css('height', '0');
+			jQuery('.navbar-collapse').removeClass('in');
         },
         // Throttle scroll event to fire every 250ms to improve performace
         throttle: 250,
@@ -206,9 +212,9 @@ jQuery(document).ready(function($) {
 
     // Close sticky header on menu item click.
     jQuery('.navbar-collapse a:not(.dropdown-toggle)').live( "click", function() {
-        jQuery( ".navbar-toggle").not( ".collapsed" ).trigger( "click" );
-        //jQuery('.navbar-collapse').css('height', '0');
-        // jQuery('.navbar-collapse').removeClass('in');
+        //jQuery( ".navbar-toggle").not( ".collapsed" ).trigger( "click" );
+        jQuery('.navbar-collapse').css('height', '0');
+        jQuery('.navbar-collapse').removeClass('in');
     });
 
     /**

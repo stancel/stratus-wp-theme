@@ -40,7 +40,7 @@ class Roots_Wrapping {
   static function wrap($main) {
 
       // If Elementor Canvas Template, exit.
-      if(isset($main) && (basename($main) == 'canvas.php')){
+      if(isset($main) && (basename($main) == 'canvas.php' || basename($main) == 'header-footer.php')){
           return $main;
       }
 

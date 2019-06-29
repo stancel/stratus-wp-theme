@@ -48,12 +48,27 @@ Stratus_Kirki::add_section( 'logo', array(
     'capability' => 'edit_theme_options',
 ) );
 
+// Logo : Enable Retina Support.
+Stratus_Kirki::add_field( 'stratus_theme', array(
+    'type'        => 'switch',
+    'settings'    => 'themo_retinajs_logo',
+    'label'       => esc_html__( 'High-resolution/Retina Logo Support', 'stratus' ),
+    'description' => esc_html__( 'Automatically serve up your high-resolution logo to devices that support them.', 'stratus' ),
+    'section'     => 'logo',
+    'default'     => 'off',
+    'priority'    => 10,
+    'choices'     => array(
+        'on'  => esc_attr__( 'Enable', 'stratus' ),
+        'off' => esc_attr__( 'Disable', 'stratus' ),
+    ),
+) );
+
 // Logo : Height
 Stratus_Kirki::add_field( 'stratus_theme', array(
     'type'        => 'number',
     'settings'    => 'themo_logo_height',
     'label'       => esc_html__( 'Logo Height', 'stratus' ),
-    'description' => esc_html__( 'Default height = 100px. Set then \'Save &amp; Publish\' BEFORE uploading your logo.', 'stratus' ),
+    'description' => esc_html__( 'Set height and then \'Publish\' BEFORE uploading your logo.', 'stratus' ),
     'section'     => 'logo',
     'default'     => 100,
     'choices'     => array(
@@ -75,26 +90,29 @@ Stratus_Kirki::add_field( 'stratus_theme', array(
     ),
 ) );
 
-/*Stratus_Kirki::add_field( 'stratus_theme', array(
-    'type'        => 'text',
-    'settings'    => 'themo_logo_height',
-    'label'       => esc_html__( 'Logo Height', 'stratus' ),
-    'description' => esc_html__( 'Default height = 100px. Set then \'Save &amp; Publish\' BEFORE uploading your logo.', 'stratus' ),
+Stratus_Kirki::add_field( 'theme_config_id', [
+    'type'        => 'custom',
+    'settings'    => 'themo_logo_resize_help',
+    'label'       => esc_html__('Resizing', 'stratus'),
     'section'     => 'logo',
-    'default'     => 100,
-) );*/
-
+    'default'     => '<div class="th-theme-support">' . __('To increase your logo size, set the new \'Logo Height\' above and \'Publish\' before you \'Remove\' and re-upload your logo. The theme resizes the logo during the upload process.', 'stratus') . '</div>',
+    'priority'    => 10,
+] );
 
 // Logo : Logo Image
 Stratus_Kirki::add_field( 'stratus_theme', array(
     'type'        => 'image',
     'settings'    => 'themo_logo',
     'label'       => esc_html__( 'Logo', 'stratus' ),
-    'description' => esc_html__( 'Automatic Retina Support. Optionally, you can use a logo that is at least x2 the size of your non-retina logo.', 'stratus' ) ,
+    'description' => esc_html__( 'For retina support, upload a logo that is twice the height set above.', 'stratus' ) ,
     'section'     => 'logo',
     'default'     => '',
     'priority'    => 10,
 ) );
+
+
+
+
 
 // Logo : Transparent Switch
 Stratus_Kirki::add_field( 'stratus_theme', array(
@@ -116,7 +134,7 @@ Stratus_Kirki::add_field( 'stratus_theme', array(
     'type'        => 'image',
     'settings'    => 'themo_logo_transparent_header',
     'label'       => esc_html__( 'Alternative logo upload', 'stratus' ),
-    'description' => esc_html__( 'Automatic Retina Support. Optionally, you can use a logo that is at least x2 the size of your non-retina logo.', 'stratus' ) ,
+    'description' => esc_html__( 'For retina support, upload a logo that is twice the height set above.', 'stratus' ) ,
     'section'     => 'logo',
     'default'     => '',
     'priority'    => 10,
@@ -1251,12 +1269,27 @@ Stratus_Kirki::add_field( 'stratus_theme', array(
     )
 ) );
 
-// Misc. : Retina Generator
+// Misc. : Enable Retina Find Replace script.
+Stratus_Kirki::add_field( 'stratus_theme', array(
+    'type'        => 'switch',
+    'settings'    => 'themo_retinajs',
+    'label'       => esc_html__( 'High-resolution/Retina Image Support', 'stratus' ),
+    'description' => esc_html__( 'Automatically serve up high-resolution images to devices that support them.', 'stratus' ),
+    'section'     => 'misc',
+    'default'     => 'off',
+    'priority'    => 10,
+    'choices'     => array(
+        'on'  => esc_attr__( 'Enable', 'stratus' ),
+        'off' => esc_attr__( 'Disable', 'stratus' ),
+    ),
+) );
+
+// Misc. : Retina Image Sizes Generator
 Stratus_Kirki::add_field( 'stratus_theme', array(
     'type'        => 'switch',
     'settings'    => 'themo_retina_support',
-    'label'       => esc_html__( 'Automatically Create Retina Images', 'stratus' ),
-    'description' => esc_html__( 'Enable or disable the feature to automatically create retina images.', 'stratus' ),
+    'label'       => esc_html__( 'High-resolution/Retina Image Generator', 'stratus' ),
+    'description' => esc_html__( 'Automatically generate high-resolution/retina image sizes (@2x) when uploaded to your Media Library.', 'stratus' ),
     'section'     => 'misc',
     'default'     => 'off',
     'priority'    => 10,

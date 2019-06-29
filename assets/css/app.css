@@ -3305,6 +3305,8 @@ html .woocommerce .wc-proceed-to-checkout a.button {
     padding:14px 0 20px;
 }
 
+.woocommerce-checkout #order_review .woocommerce-terms-and-conditions-wrapper .input-checkbox {margin:8px 8px 0 -3px}
+
 .woocommerce-checkout #payment #place_order {
     width:100%;
     padding-top:15px;
@@ -3317,7 +3319,7 @@ html .woocommerce .wc-proceed-to-checkout a.button {
     font-weight:600;
 }
 
-.woocommerce #ship-to-different-address-checkbox {margin-left:12px}
+.woocommerce #ship-to-different-address-checkbox {margin: 17px 10px 0 3px}
 
 .woocommerce form textarea#order_comments {height:90px}
 
@@ -6220,6 +6222,11 @@ header.dark-header.headhesive--clone[data-transparent-header="true"] .navbar-nav
 .gm-navbar .gm-dropdown-menu .gm-dropdown-menu-wrapper {margin-top:-10px}
 
 
+/* Mega menu */
+
+.gm-navbar li.mega-gm-dropdown > .gm-dropdown-menu-wrapper .gm-dropdown-menu {padding:16px 10px}
+
+
 /* Minimal / Sidebar menu */
 
 .gm-navbar--style-3 .gm-main-menu-wrapper .gm-navbar-nav > .gm-menu-item > a {padding:8px 0}
@@ -6740,5 +6747,5 @@ img.th-img-stretch, .th-image-stretch img {
     body.admin-bar .banner[data-transparent-header="true"] {top:32px}
 }
 
-
+body[class*="groovy_menu"] .banner[data-transparent-header="true"]:not(.headhesive--stick) {top:0}
 

@@ -783,9 +783,15 @@ function themo_return_footer_logo() {
 # Filters
 # Plugins Actiosn and Filters
 
+// RetinaJS
 // Add data attribute for retina images.
-// add_filter('the_content', 'add_retina_tags', 99999);
-function add_retina_tags($content)
+if ( function_exists( 'get_theme_mod' ) ) {
+    if (get_theme_mod('themo_retinajs', false)) {
+        add_filter('the_content', 'themo_add_retina_tags', 99999);
+    }
+}
+
+function themo_add_retina_tags($content)
 {
     $themo_retina_size = '2';
     preg_match_all('/<img (.*?)\/>/', $content, $images);
@@ -1380,6 +1386,9 @@ if (!function_exists('th_load_booked_translations')) {
 
     }
 
+    // remove kirki admin notice
+    update_option( 'kirki_telemetry_no_consent', true );
+
    add_action('after_setup_theme', 'th_load_booked_translations', 15);
 
 }
@@ -1872,7 +1881,6 @@ function th_register_required_plugins() {
         array(
             'name'      => 'Kirki',
             'slug'      => 'kirki',
-            'source'    => 'https://www.dropbox.com/s/62cikx5ctanx412/kirki.zip?dl=1', //get_template_directory() . '/plugins/th-widget-pack.zip', // The plugin source.
             'required'  => true,
         ),
 		array(
@@ -1884,7 +1892,6 @@ function th_register_required_plugins() {
         array(
             'name'      => 'Option Tree', // The plugin name.
             'slug'      => 'option-tree', // The plugin slug (typically the folder name)
-            'source'    => 'https://www.dropbox.com/s/ff9f1ahxacpbvlu/option-tree.zip?dl=1', // BETA
             'required'  => true,
         ),
 		array(

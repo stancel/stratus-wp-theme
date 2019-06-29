@@ -47,6 +47,17 @@ if ( function_exists( 'get_theme_mod' ) ) {
     $th_dark_header_content = get_post_meta($postID, 'themo_header_content_style', true );
 
 
+
+    // RetinaJS
+    // Add data attribute for retina logo.
+    $themo_retina_logo_att = false;
+    if ( function_exists( 'get_theme_mod' ) ) {
+        if (get_theme_mod('themo_retinajs_logo', false)) {
+            $themo_retina_logo_att = 'data-rjs="2"';
+        }
+    }
+
+
     // Alt Logo enabled?
     $th_alt_logo = false;
     $th_alt_logo = get_post_meta($postID, 'themo_alt_logo', true );
@@ -303,11 +314,11 @@ if ( function_exists( 'get_theme_mod' ) ) {
             <div id="logo">
                 <a href="<?php echo esc_url(home_url('/')); ?>">
                    	<?php if($transparency && $transparent_logo_enabled && $th_alt_logo == "on") { // If trans header on and there is a alt logo and it's enabled on page settings, show it  ?>
-                        <img class="logo-trans logo-reg" src="<?php echo esc_url( $logo_src ); ?>" <?php echo wp_kses_post( $logo_height . $logo_width );?>  alt="<?php sanitize_text_field(bloginfo("name" )); ?>" />
+                        <img <?php echo $themo_retina_logo_att; ?> class="logo-trans logo-reg" src="<?php echo esc_url( $logo_src ); ?>" <?php echo wp_kses_post( $logo_height . $logo_width );?>  alt="<?php sanitize_text_field(bloginfo("name" )); ?>" />
                     <?php }elseif($transparency && (!$transparent_logo_enabled or !$th_alt_logo or $th_alt_logo == 'Off')){ // If trans header on but alt logo is turned off or it's not enabed on the page settings don't show ?>
-                        <img class="logo-trans logo-reg" src="<?php echo esc_url( $logo_src_main ); ?>" <?php echo wp_kses_post( $logo_height_main ." ". $logo_width_main );?>   alt="<?php sanitize_text_field(bloginfo("name" )); ?>" />
+                        <img <?php echo $themo_retina_logo_att; ?> class="logo-trans logo-reg" src="<?php echo esc_url( $logo_src_main ); ?>" <?php echo wp_kses_post( $logo_height_main ." ". $logo_width_main );?>   alt="<?php sanitize_text_field(bloginfo("name" )); ?>" />
                     <?php }?>
-                    <img class="logo-main logo-reg" src="<?php echo esc_url( $logo_src_main ); ?>" <?php echo wp_kses_post( $logo_height_main ." ". $logo_width_main );?>   alt="<?php bloginfo("name" ); ?>" />
+                    <img <?php echo $themo_retina_logo_att; ?> class="logo-main logo-reg" src="<?php echo esc_url( $logo_src_main ); ?>" <?php echo wp_kses_post( $logo_height_main ." ". $logo_width_main );?>   alt="<?php bloginfo("name" ); ?>" />
 				</a>
             </div>
         </div>

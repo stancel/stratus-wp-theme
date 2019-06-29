@@ -15,7 +15,6 @@ include( get_template_directory() . '/lib/custom.php');          // Custom funct
 include( get_template_directory() . '/lib/class-tgm-plugin-activation.php');    // Bundled Plugins
 include( get_template_directory() . '/lib/plugin-update-checker/plugin-update-checker.php');
 
-
 /**
  * Define Elementor Partner ID
  */

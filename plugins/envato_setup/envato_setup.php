@@ -1928,7 +1928,7 @@ function enqueue_child_theme_style() {
                                         $group2 = array( "tour", "parallel-platforms","mobile-marketing","idea-collaboration",
                                             "growth-strategies", "envisioned-multimedia","engage-worldwide");
                                         /* Group 3 = Transparent + Dark Menu Content */
-                                        $group3 = array( "home-saas","home-cloud","home-parallax","home-product-promotion","home-video");
+                                        $group3 = array( "home-saas","home-cloud","home-parallax","home-product-promotion","home-video","home-startup-2");
 
                                         $th_post = get_post($post_id);
                                         $th_slug = $th_post->post_name;
